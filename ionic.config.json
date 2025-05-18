@@ -1,0 +1,7 @@
+{
+  "name": "howMuchDoIDrink",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

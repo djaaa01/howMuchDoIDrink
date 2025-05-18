@@ -1,0 +1,13 @@
+{
+  "APP_NAME": "HowMuchDoIDrink?",
+  "EMAIL": "Email",
+  "PASSWORD": "Password",
+  "REPEAT_PASSWORD": "Repeat password",
+  "REGISTER": "Register",
+  "LOGIN": "Login",
+  "BACK_LOGIN": "Back to login",
+  "ERROR": {
+    "COMPLETE_FIELD": "Please complete all fields.",
+    "PASSWORD_MISMATCH": "Passwords do not match."
+  }
+}

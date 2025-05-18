@@ -1,0 +1,13 @@
+{
+  "APP_NAME": "CâtBeau?",
+  "EMAIL": "Email",
+  "PASSWORD": "Parolă",
+  "REPEAT_PASSWORD": "Repetă parola",
+  "REGISTER": "Înregistrare",
+  "LOGIN": "Autentificare",
+  "BACK_LOGIN": "Înapoi la autentificare",
+  "ERROR": {
+    "COMPLETE_FIELD": "Completează toate câmpurile.",
+    "PASSWORD_MISMATCH": "Parolele nu se potrivesc."
+  }
+}

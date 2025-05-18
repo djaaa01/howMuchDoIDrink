@@ -1,3 +1,33 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <div class="global">
+    <div class="global__content">
+      <ion-router-outlet></ion-router-outlet>
+    </div>
+    @if (isLoggedIn()) {
+    <div class="global__main-menu">
+      <div (click)="logout()" class="global__main-menu__item ion-activatable">
+        <img
+          src="assets/icon/logout-icon.svg"
+          alt=""
+        /><ion-ripple-effect></ion-ripple-effect>
+      </div>
+      <a
+        routerLink="/app/home"
+        routerLinkActive="global__main-menu__item--active"
+        class="global__main-menu__item ion-activatable"
+      >
+        <img
+          src="assets/icon/home-icon.svg"
+          alt=""
+        /><ion-ripple-effect></ion-ripple-effect>
+      </a>
+      <a class="global__main-menu__item ion-activatable">
+        <img
+          src="assets/icon/profile-icon.svg"
+          alt=""
+        /><ion-ripple-effect></ion-ripple-effect>
+      </a>
+    </div>
+    }
+  </div>
 </ion-app>

@@ -1,9 +1,19 @@
 import { Routes } from '@angular/router';
-import { authGuard } from './core/guards/auth.guard';
+
+import {
+  AuthGuard,
+  redirectLoggedInTo,
+  redirectUnauthorizedTo,
+} from '@angular/fire/auth-guard';
+
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['auth/login']);
+const redirectLoggedInToProjects = () => redirectLoggedInTo(['app/home']);
 
 export const routes: Routes = [
   {
     path: 'auth',
+    canActivate: [AuthGuard],
+    data: { authGuardPipe: redirectLoggedInToProjects },
     children: [
       {
         path: 'login',
@@ -25,12 +35,13 @@ export const routes: Routes = [
 
   {
     path: 'app',
-    canActivate: [authGuard],
+    canActivate: [AuthGuard],
+    data: { authGuardPipe: redirectUnauthorizedToLogin },
     children: [
       {
         path: 'home',
         loadComponent: () =>
-          import('./home/home.page').then((m) => m.HomePage),
+          import('./pages/home/home.page').then((m) => m.HomePage),
       },
       {
         path: '',

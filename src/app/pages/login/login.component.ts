@@ -1,6 +1,14 @@
-import { Component, inject, OnInit } from '@angular/core';
+import {
+  Component,
+  inject,
+  OnInit,
+} from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
-import { IonRippleEffect, ToastController } from '@ionic/angular/standalone';
+import {
+  IonRippleEffect,
+  ToastController,
+  LoadingController,
+} from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
 import { from } from 'rxjs';
 import { signInWithEmailAndPassword } from 'firebase/auth';
@@ -17,6 +25,8 @@ export class LoginComponent implements OnInit {
   router = inject(Router);
   auth = inject(Auth);
   toastController = inject(ToastController);
+  loadingController = inject(LoadingController);
+
   email = '';
   password = '';
 
@@ -27,15 +37,20 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/auth/register']);
   }
 
-  onLogin(): void {
+  async onLogin(): Promise<void> {
     (document.activeElement as HTMLElement)?.blur();
+    const loading = await this.loadingController.create();
+    await loading.present();
+
     from(
       signInWithEmailAndPassword(this.auth, this.email, this.password)
     ).subscribe({
-      next: () => {
+      next: async () => {
+        await loading.dismiss();
         this.router.navigate(['/app/home']);
       },
-      error: (error) => {
+      error: async (error) => {
+        await loading.dismiss();
         this.presentToast(error.message);
         console.error('Login error:', error);
       },

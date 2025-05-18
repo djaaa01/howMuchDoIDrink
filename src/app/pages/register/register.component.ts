@@ -1,6 +1,10 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
-import { IonRippleEffect, ToastController } from '@ionic/angular/standalone';
+import {
+  IonRippleEffect,
+  ToastController,
+  LoadingController,
+} from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { Auth, createUserWithEmailAndPassword } from '@angular/fire/auth';
@@ -16,6 +20,8 @@ export class RegisterComponent implements OnInit {
   auth = inject(Auth);
   toastController = inject(ToastController);
   translateService = inject(TranslateService);
+  loadingController = inject(LoadingController);
+
   email = '';
   password = '';
   repeatPassword = '';
@@ -27,7 +33,7 @@ export class RegisterComponent implements OnInit {
     this.router.navigate(['/auth/login']);
   }
 
-  onRegister(): void {
+  async onRegister(): Promise<void> {
     if (!this.email || !this.password || !this.repeatPassword) {
       this.presentToast(this.translateService.instant('ERROR.COMPLETE_FIELD'));
       return;
@@ -40,12 +46,17 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
+    const loading = await this.loadingController.create();
+    await loading.present();
+
     createUserWithEmailAndPassword(this.auth, this.email, this.password)
-      .then(() => {
+      .then(async () => {
+        await loading.dismiss();
         (document.activeElement as HTMLElement)?.blur();
         this.router.navigate(['/app/home']);
       })
-      .catch((error) => {
+      .catch(async (error) => {
+        await loading.dismiss();
         this.presentToast(error.message);
         console.error('Registration error:', error);
       });

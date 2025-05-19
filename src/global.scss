@@ -72,6 +72,30 @@ button {
   border: 1px solid #21bb69;
 }
 
+.no-border {
+  border: 1px solid transparent;
+}
+
 .ion-page {
   overflow: auto;
+}
+
+.main-header {
+  position: sticky;
+  width: 100%;
+  top: 0;
+  min-height: 54px;
+  background-color: #242c44;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  z-index: 10;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 24px;
+  }
 }

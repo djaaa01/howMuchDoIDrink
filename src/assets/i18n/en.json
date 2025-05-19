@@ -6,8 +6,17 @@
   "REGISTER": "Register",
   "LOGIN": "Login",
   "BACK_LOGIN": "Back to login",
+  "ADD_LOCATION": "Add location",
+  "DONE": "Done",
+  "CANCEL": "Cancel",
+  "LOCATION": "Location",
+  "ADDRESS": "Address",
   "ERROR": {
     "COMPLETE_FIELD": "Please complete all fields.",
     "PASSWORD_MISMATCH": "Passwords do not match."
+  },
+  "SUCCESS": {
+    "LOCATION": "Your location has been saved."
   }
+
 }

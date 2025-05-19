@@ -22,10 +22,10 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  router = inject(Router);
-  auth = inject(Auth);
-  toastController = inject(ToastController);
-  loadingController = inject(LoadingController);
+  private router = inject(Router);
+  private auth = inject(Auth);
+  private toastController = inject(ToastController);
+  private loadingController = inject(LoadingController);
 
   email = '';
   password = '';

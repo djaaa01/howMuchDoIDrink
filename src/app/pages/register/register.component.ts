@@ -16,11 +16,11 @@ import { Auth, createUserWithEmailAndPassword } from '@angular/fire/auth';
   imports: [FormsModule, TranslatePipe, IonRippleEffect],
 })
 export class RegisterComponent implements OnInit {
-  router = inject(Router);
-  auth = inject(Auth);
-  toastController = inject(ToastController);
-  translateService = inject(TranslateService);
-  loadingController = inject(LoadingController);
+  private router = inject(Router);
+  private auth = inject(Auth);
+  private toastController = inject(ToastController);
+  private translateService = inject(TranslateService);
+  private loadingController = inject(LoadingController);
 
   email = '';
   password = '';

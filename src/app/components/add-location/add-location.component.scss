@@ -1,0 +1,22 @@
+.add-location {
+  height: 100vh;
+  background-color: #1a2033;
+
+  .main-header {
+    justify-content: space-between;
+    padding: unset;
+
+    &___left-actions, &_left-actions {
+        button {
+            padding: 0 16px;
+        }
+    }
+  }
+
+  &__content {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+}

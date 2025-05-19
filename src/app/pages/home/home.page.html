@@ -1,6 +1,26 @@
-<div class="header">
-  <div class="header__logo">
-    <img src="assets/icon/logo-icon.svg" alt="" />
-    <span>{{ "APP_NAME" | translate }}</span>
+<div class="home">
+  <div class="main-header">
+    <div class="main-header__logo">
+      <img src="assets/icon/logo-icon.svg" alt="" />
+      <span>{{ "APP_NAME" | translate }}</span>
+    </div>
+  </div>
+
+  <div class="home__content">
+    <div class="home__content__locations">
+      @for (item of locations(); track item) {
+      <div class="home__content__location-item">
+        <img src="assets/icon/location-icon.svg" alt="" />
+        <div class="home__content__location-item__info">
+          <span>{{ item.location }}</span>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+
+  <div (click)="onAddLocation()" class="add-location ion-activatable">
+    <img draggable="false" src="assets/icon/plus-icon.svg" alt="" />
+    <ion-ripple-effect></ion-ripple-effect>
   </div>
 </div>

@@ -6,8 +6,16 @@
   "REGISTER": "Înregistrare",
   "LOGIN": "Autentificare",
   "BACK_LOGIN": "Înapoi la autentificare",
+  "ADD_LOCATION": "Adaugă locație",
+  "DONE": "Gata",
+  "CANCEL": "Anulează",
+  "LOCATION": "Locație",
+  "ADDRESS": "Adresă",
   "ERROR": {
     "COMPLETE_FIELD": "Completează toate câmpurile.",
     "PASSWORD_MISMATCH": "Parolele nu se potrivesc."
+  },
+  "SUCCESS": {
+    "LOCATION": "Locația ta a fost salvată."
   }
 }

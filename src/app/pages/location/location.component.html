@@ -1,0 +1,49 @@
+<div class="location">
+  <div class="main-header">
+    <div class="main-header__logo">
+      <img width="22" src="assets/icon/location-icon.svg" alt="" />
+      <span>{{ this.location()?.name }}</span>
+    </div>
+  </div>
+
+  <div class="location__content">
+    @if(location()?.items?.length) {
+    <div class="location__content__locations">
+      @for (item of location()?.items; track item) {
+      <div class="location__content__location-item">
+        <img src="assets/icon/beer-icon.svg" alt="" />
+        <div class="location__content__location-item__info">
+          <span>{{ item.name }}</span>
+          <div class="counter">
+            <div (click)="onMinusCounter(item)" class="ion-activatable">
+              <img
+                draggable="false"
+                src="assets/icon/minus-green-icon.svg"
+                alt=""
+              />
+              <ion-ripple-effect></ion-ripple-effect>
+            </div>
+            <span>{{ item.counter || 0 }}</span>
+            <div (click)="onPlusCounter(item)" class="ion-activatable">
+              <img
+                draggable="false"
+                src="assets/icon/plus-green-icon.svg"
+                alt=""
+              />
+              <ion-ripple-effect></ion-ripple-effect>
+            </div>
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+    }
+
+    <div class="location__content__add-item">
+      <button (click)="onAddItem()" class="main-button ion-activatable">
+        {{ "ADD_ITEM" | translate }}
+        <ion-ripple-effect></ion-ripple-effect>
+      </button>
+    </div>
+  </div>
+</div>

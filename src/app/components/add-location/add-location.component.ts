@@ -36,6 +36,13 @@ export class AddLocationComponent {
   }
 
   onDone(): void {
+    if (!this.location || !this.address) {
+      this.presentToast(
+        this.translateService.instant('ERROR.COMPLETE_FIELD'),
+        'danger'
+      );
+      return;
+    }
     from(this.loadingController.create())
       .pipe(
         switchMap((loading) => {
@@ -51,7 +58,7 @@ export class AddLocationComponent {
 
               const locationData: LocationModel = {
                 uid: currentUser.uid,
-                location: this.location.trim(),
+                name: this.location.trim(),
                 address: this.address.trim(),
                 createdAt: new Date(),
               };

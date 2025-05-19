@@ -1,4 +1,4 @@
-.add-location {
+.add-item {
   height: 100vh;
   background-color: #1a2033;
 
@@ -9,6 +9,8 @@
     &__logo {
       flex: 1;
       white-space: nowrap;
+      display: flex;
+      justify-content: center;
     }
 
     &__left-actions,

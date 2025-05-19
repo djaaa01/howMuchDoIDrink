@@ -1,0 +1,58 @@
+.location {
+  &__content {
+    padding: 54px 16px 108px 16px;
+
+    &__locations {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-bottom: 16px;
+    }
+
+    &__location-item {
+      padding: 16px;
+      background-color: #1f243b;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+      span {
+        font-size: 24px;
+      }
+
+      &__info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+      }
+    }
+
+    &__add-item {
+      width: 100%;
+      display: flex;
+    }
+  }
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border: 1px solid #21bb69;
+  height: 46px;
+
+  div {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 8px;
+    user-select: none;
+  }
+
+  span {
+    user-select: none;
+  }
+}

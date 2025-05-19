@@ -23,7 +23,7 @@ export class AppComponent {
   constructor(private translate: TranslateService) {
     this.translate.addLangs(['ro', 'en']);
     this.translate.setDefaultLang('en');
-    this.translate.use('ro');
+    this.translate.use('en');
   }
 
   async logout() {

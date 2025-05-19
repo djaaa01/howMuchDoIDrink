@@ -1,4 +1,4 @@
-<div class="add-location">
+<div class="add-item">
   <div class="main-header">
     <div class="main-header__left-actions">
       <button (click)="onDismiss()" class="no-border ion-activatable">
@@ -7,7 +7,7 @@
       </button>
     </div>
     <div class="main-header__logo">
-      <span>{{ "ADD_LOCATION" | translate }}</span>
+      <span>{{ "ADD_ITEM" | translate }}</span>
     </div>
     <div class="main-header__right-actions">
       <button (click)="onDone()" class="no-border ion-activatable">
@@ -16,16 +16,16 @@
       </button>
     </div>
   </div>
-  <div class="add-location__content">
+  <div class="add-item__content">
     <input
-      [(ngModel)]="location"
-      [placeholder]="'LOCATION' | translate"
+      [(ngModel)]="name"
+      [placeholder]="'ITEM_NAME' | translate"
       type="text"
     />
     <input
-      [(ngModel)]="address"
-      [placeholder]="'ADDRESS' | translate"
-      type="text"
+      [(ngModel)]="price"
+      [placeholder]="'ITEM_PRICE' | translate"
+      type="number"
     />
   </div>
 </div>

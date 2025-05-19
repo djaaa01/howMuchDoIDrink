@@ -6,7 +6,8 @@ import {
   redirectUnauthorizedTo,
 } from '@angular/fire/auth-guard';
 
-const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['auth/login']);
+const redirectUnauthorizedToLogin = () =>
+  redirectUnauthorizedTo(['auth/login']);
 const redirectLoggedInToProjects = () => redirectLoggedInTo(['app/home']);
 
 export const routes: Routes = [
@@ -23,7 +24,9 @@ export const routes: Routes = [
       {
         path: 'register',
         loadComponent: () =>
-          import('./pages/register/register.component').then((m) => m.RegisterComponent),
+          import('./pages/register/register.component').then(
+            (m) => m.RegisterComponent
+          ),
       },
       {
         path: '',
@@ -42,6 +45,13 @@ export const routes: Routes = [
         path: 'home',
         loadComponent: () =>
           import('./pages/home/home.page').then((m) => m.HomePage),
+      },
+      {
+        path: 'home/:id',
+        loadComponent: () =>
+          import('./pages/location/location.component').then(
+            (m) => m.LocationComponent
+          ),
       },
       {
         path: '',

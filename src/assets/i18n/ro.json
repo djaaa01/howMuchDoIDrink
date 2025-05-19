@@ -9,8 +9,11 @@
   "ADD_LOCATION": "Adaugă locație",
   "DONE": "Gata",
   "CANCEL": "Anulează",
-  "LOCATION": "Locație",
+  "LOCATION": "Numele locației",
   "ADDRESS": "Adresă",
+  "ADD_ITEM": "Adaugă produs",
+  "ITEM_NAME": "Nume produs",
+  "ITEM_PRICE": "Preț produs",
   "ERROR": {
     "COMPLETE_FIELD": "Completează toate câmpurile.",
     "PASSWORD_MISMATCH": "Parolele nu se potrivesc."

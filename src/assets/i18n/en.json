@@ -9,8 +9,11 @@
   "ADD_LOCATION": "Add location",
   "DONE": "Done",
   "CANCEL": "Cancel",
-  "LOCATION": "Location",
+  "LOCATION": "Location name",
   "ADDRESS": "Address",
+  "ADD_ITEM": "Add item",
+  "ITEM_NAME": "Item name",
+  "ITEM_PRICE": "Item price",
   "ERROR": {
     "COMPLETE_FIELD": "Please complete all fields.",
     "PASSWORD_MISMATCH": "Passwords do not match."

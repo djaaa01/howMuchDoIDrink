@@ -1,6 +1,10 @@
+import { ItemModel } from "./item.model";
+
 export interface LocationModel {
+  id?: string;
   uid: string;
-  location: string;
+  name: string;
   address: string;
-  createdAt: Date;
+  createdAt: any;
+  items?: ItemModel[];
 }

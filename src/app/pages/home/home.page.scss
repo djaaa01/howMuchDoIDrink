@@ -12,15 +12,26 @@
     }
 
     &__location-item {
+      position: relative;
       padding: 16px;
       background-color: #1f243b;
       display: flex;
       align-items: center;
       gap: 16px;
       box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      border-bottom: 1px solid transparent;
+
+      &--active {
+        border-color: #21bb69;
+      }
 
       span {
-        font-size: 24px;
+        font-size: 18px;
+        text-transform: uppercase;
+      }
+
+      img {
+        width: 28px;
       }
     }
   }

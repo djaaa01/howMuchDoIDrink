@@ -48,6 +48,9 @@ export const routes: Routes = [
       },
       {
         path: 'home/:id',
+        data: {
+          prevRoute: 'home',
+        },
         loadComponent: () =>
           import('./pages/location/location.component').then(
             (m) => m.LocationComponent

@@ -1,22 +1,26 @@
 {
   "APP_NAME": "CâtBeau?",
-  "EMAIL": "Email",
-  "PASSWORD": "Parolă",
-  "REPEAT_PASSWORD": "Repetă parola",
+  "EMAIL": "Email*",
+  "PASSWORD": "Parolă*",
+  "REPEAT_PASSWORD": "Repetă parola*",
   "REGISTER": "Înregistrare",
   "LOGIN": "Autentificare",
   "BACK_LOGIN": "Înapoi la autentificare",
   "ADD_LOCATION": "Adaugă locație",
   "DONE": "Gata",
   "CANCEL": "Anulează",
-  "LOCATION": "Numele locației",
+  "LOCATION": "Numele locației*",
   "ADDRESS": "Adresă",
   "ADD_ITEM": "Adaugă produs",
-  "ITEM_NAME": "Nume produs",
-  "ITEM_PRICE": "Preț produs",
+  "ITEM_NAME": "Nume produs*",
+  "ITEM_PRICE": "Preț produs*",
+  "HISTORY":"Istoric",
+  "MENU":"Meniu",
+  "AMOUNT_SPENT": "Suma cheltuită",
   "ERROR": {
-    "COMPLETE_FIELD": "Completează toate câmpurile.",
-    "PASSWORD_MISMATCH": "Parolele nu se potrivesc."
+    "COMPLETE_FIELD": "Te rog completează toate câmpurile obligatorii marcate cu asterisc (*).",
+    "PASSWORD_MISMATCH": "Parolele nu se potrivesc.",
+    "NO_DATA": "Momentan nu există date în istoric."
   },
   "SUCCESS": {
     "LOCATION": "Locația ta a fost salvată."

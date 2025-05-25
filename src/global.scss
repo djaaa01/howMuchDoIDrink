@@ -87,17 +87,24 @@ button {
   width: 100%;
   top: 0;
   min-height: 54px;
+  height: 54px;
   background-color: #242c44;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 0 16px;
   z-index: 10;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 
-  &__logo {
+  &__logo, &__action {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 24px;
+    font-size: 18px;
+
+    img {
+      width: 28px;
+    }
   }
 }

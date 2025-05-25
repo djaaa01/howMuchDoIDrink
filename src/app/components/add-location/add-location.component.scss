@@ -9,6 +9,8 @@
     &__logo {
       flex: 1;
       white-space: nowrap;
+      display: flex;
+      justify-content: center;
     }
 
     &__left-actions,

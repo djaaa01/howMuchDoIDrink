@@ -1,22 +1,26 @@
 {
   "APP_NAME": "HowMuchDoIDrink?",
-  "EMAIL": "Email",
-  "PASSWORD": "Password",
-  "REPEAT_PASSWORD": "Repeat password",
+  "EMAIL": "Email*",
+  "PASSWORD": "Password*",
+  "REPEAT_PASSWORD": "Repeat password*",
   "REGISTER": "Register",
   "LOGIN": "Login",
   "BACK_LOGIN": "Back to login",
   "ADD_LOCATION": "Add location",
   "DONE": "Done",
   "CANCEL": "Cancel",
-  "LOCATION": "Location name",
+  "LOCATION": "Location name*",
   "ADDRESS": "Address",
   "ADD_ITEM": "Add item",
-  "ITEM_NAME": "Item name",
-  "ITEM_PRICE": "Item price",
+  "ITEM_NAME": "Item name*",
+  "ITEM_PRICE": "Item price*",
+  "HISTORY":"History",
+  "MENU":"Menu",
+  "AMOUNT_SPENT": "Amount spent",
   "ERROR": {
-    "COMPLETE_FIELD": "Please complete all fields.",
-    "PASSWORD_MISMATCH": "Passwords do not match."
+    "COMPLETE_FIELD": "Please fill in all mandatory fields marked with an asterisk (*).",
+    "PASSWORD_MISMATCH": "Passwords do not match.",
+    "NO_DATA": "Looks like there’s no history to display right now."
   },
   "SUCCESS": {
     "LOCATION": "Your location has been saved."

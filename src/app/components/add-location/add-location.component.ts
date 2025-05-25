@@ -36,7 +36,7 @@ export class AddLocationComponent {
   }
 
   onDone(): void {
-    if (!this.location || !this.address) {
+    if (!this.location) {
       this.presentToast(
         this.translateService.instant('ERROR.COMPLETE_FIELD'),
         'danger'

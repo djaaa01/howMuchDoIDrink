@@ -22,6 +22,7 @@
   "CONGRATS_MESSAGE": "Felicitări!",
   "CONSUMED_ITEMS_LIST": "Lista produselor consumate",
   "RECEIPT": "Bon",
+  "PRICE": "Preț",
   "ERROR": {
     "COMPLETE_FIELD": "Te rog completează toate câmpurile obligatorii marcate cu asterisc (*).",
     "PASSWORD_MISMATCH": "Parolele nu se potrivesc.",

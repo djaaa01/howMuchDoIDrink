@@ -75,7 +75,9 @@
               <div class="menu__item__info">
                 <div class="menu__item__info__title">
                   <span>{{ item.name }}</span>
-                  <span class="price">Price: {{ item.price }}</span>
+                  <span class="price"
+                    >{{ "PRICE" | translate }}: {{ item.price }}</span
+                  >
                 </div>
                 @if (location()?.state?.isPlay){
                 <div class="counter">

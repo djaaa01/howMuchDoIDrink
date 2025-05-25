@@ -12,18 +12,24 @@
   "LOCATION": "Location name*",
   "ADDRESS": "Address",
   "ADD_ITEM": "Add item",
+  "EDIT_ITEM": "Edit item",
   "ITEM_NAME": "Item name*",
   "ITEM_PRICE": "Item price*",
   "HISTORY":"History",
   "MENU":"Menu",
   "AMOUNT_SPENT": "Amount spent",
+  "REMOVE_ITEM": "Mark for deletion",
+  "CONGRATS_MESSAGE": "Congratulations!",
+  "CONSUMED_ITEMS_LIST": "List of consumed products",
+  "RECEIPT": "Receipt",
   "ERROR": {
     "COMPLETE_FIELD": "Please fill in all mandatory fields marked with an asterisk (*).",
     "PASSWORD_MISMATCH": "Passwords do not match.",
     "NO_DATA": "Looks like there’s no history to display right now."
   },
   "SUCCESS": {
-    "LOCATION": "Your location has been saved."
+    "LOCATION": "Your location has been saved.",
+    "CONSUMPTION_MESSAGE": "You consumed <strong>{{total}}</strong> items with a total value of <strong>{{price}}</strong>."
   }
 
 }

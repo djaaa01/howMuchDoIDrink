@@ -96,7 +96,8 @@ button {
   z-index: 10;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 
-  &__logo, &__action {
+  &__logo,
+  &__action {
     position: relative;
     display: flex;
     align-items: center;
@@ -107,4 +108,25 @@ button {
       width: 28px;
     }
   }
+}
+
+ion-item {
+  --border-style: unset;
+  --inner-padding-top: unset;
+  --ion-safe-area-right: 0;
+  --inner-padding-end: 0;
+  --padding-start: 0;
+  --ion-safe-area-left: 0;
+}
+
+ion-checkbox {
+  --size: 32px;
+  --checkbox-background-checked: #21bb69;
+  --checkmark-color: white;
+  --checkbox-background: transparent;
+}
+
+ion-checkbox::part(container) {
+  border-radius: 0;
+  border: 1px solid white;
 }

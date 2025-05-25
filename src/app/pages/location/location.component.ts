@@ -26,6 +26,9 @@ import {
   IonRippleEffect,
   ModalController,
   LoadingController,
+  IonItemSliding,
+  IonItem,
+  IonItemOptions,
 } from '@ionic/angular/standalone';
 import { AddItemComponent } from 'src/app/components/add-item/add-item.component';
 import { ItemModel } from 'src/app/core/models/item.model';
@@ -34,13 +37,21 @@ import { TabMenuEnum } from 'src/app/core/enums/tab-menu.enum';
 import { Auth } from '@angular/fire/auth';
 import { HistoryRecordModel } from 'src/app/core/models/history-record.model';
 import { DatePipe } from '@angular/common';
+import { StopMessageComponent } from 'src/app/components/stop-message/stop-message.component';
 
 @Component({
   selector: 'app-location',
   templateUrl: './location.component.html',
   styleUrls: ['./location.component.scss'],
   standalone: true,
-  imports: [TranslatePipe, IonRippleEffect, DatePipe],
+  imports: [
+    TranslatePipe,
+    IonRippleEffect,
+    DatePipe,
+    IonItemSliding,
+    IonItem,
+    IonItemOptions,
+  ],
 })
 export class LocationComponent implements OnInit {
   private route = inject(ActivatedRoute);
@@ -113,8 +124,6 @@ export class LocationComponent implements OnInit {
         return { ...record, totalAmount };
       }
     );
-
-    console.log(historyWithTotal);
 
     const sorted = historyWithTotal.sort(
       (a, b) =>
@@ -280,6 +289,23 @@ export class LocationComponent implements OnInit {
       );
 
       if (filteredItems.length > 0) {
+        const totalCounter = filteredItems.reduce(
+          (sum, item) => sum + (item.counter || 0),
+          0
+        );
+
+        const totalPrice = filteredItems.reduce(
+          (sum, item) => sum + item.price * (item.counter || 0),
+          0
+        );
+
+        // 🔥 Deschide modalul și trimite tot
+        await this.openStopMessageModal(
+          totalCounter,
+          filteredItems,
+          totalPrice
+        );
+
         const historyRecord: HistoryRecordModel = {
           locationId: this.locationId,
           state: current.state?.isPlay || false,
@@ -317,5 +343,103 @@ export class LocationComponent implements OnInit {
         console.error('Eroare la resetare:', error);
       }
     }
+  }
+
+  async openStopMessageModal(
+    totalCounter: number,
+    consumedItems: ItemModel[],
+    totalPrice: number
+  ): Promise<void> {
+    const modal = await this.modalController.create({
+      component: StopMessageComponent,
+      componentProps: {
+        totalCounter: totalCounter,
+        consumedItems: consumedItems,
+        totalPrice: totalPrice,
+      },
+    });
+    await modal.present();
+  }
+
+  async onItemEdit(item: ItemModel): Promise<void> {
+    (document.activeElement as HTMLElement)?.blur();
+    const modal = await this.modalController.create({
+      component: AddItemComponent,
+      componentProps: {
+        item: item,
+      },
+    });
+    await modal.present();
+
+    const { data } = await modal.onWillDismiss();
+
+    if (data) {
+      await this.updateItem(data, item);
+    }
+  }
+
+  async updateItem(
+    updatedItem: ItemModel,
+    originalItem: ItemModel
+  ): Promise<void> {
+    (document.activeElement as HTMLElement)?.blur();
+    const current = this.location();
+    if (!current || !this.locationId || !current.items) return;
+
+    let updatedItems: ItemModel[] = [];
+
+    if (updatedItem.isRemove) {
+      updatedItems = current.items.filter((i) => i.name !== originalItem.name);
+    } else {
+      updatedItems = current.items.map((i) =>
+        i.name === originalItem.name ? { ...updatedItem } : i
+      );
+    }
+
+    const docRef = doc(
+      this.firestore,
+      `${CollectionEnum.LOCATIONS}/${this.locationId}`
+    ) as DocumentReference<LocationModel>;
+
+    const loading = await this.loadingController.create();
+    await loading.present();
+
+    updateDoc(docRef, { items: updatedItems })
+      .then(() => {
+        this.location.set({
+          ...current,
+          items: updatedItems,
+        });
+      })
+      .catch((error) => {
+        console.error('Eroare la actualizarea/ștergerea itemului:', error);
+      })
+      .finally(() => {
+        loading.dismiss();
+      });
+  }
+
+  async onHistory(item: HistoryRecordModel): Promise<void> {
+    const totalCounter = (item.items || []).reduce(
+      (sum, i) => sum + (i.counter || 0),
+      0
+    );
+
+    const totalPrice = (item.items || []).reduce(
+      (sum, i) => sum + i.price * (i.counter || 0),
+      0
+    );
+
+    const consumedItems = item.items || [];
+
+    const modal = await this.modalController.create({
+      component: StopMessageComponent,
+      componentProps: {
+        totalCounter: totalCounter,
+        totalPrice: totalPrice,
+        consumedItems: consumedItems,
+      },
+    });
+    await modal.present();
   }
 }

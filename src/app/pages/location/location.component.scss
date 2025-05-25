@@ -84,7 +84,7 @@
   max-width: 120px;
   width: 120px;
 
-  div {
+  .counter-action {
     position: relative;
     display: flex;
     align-items: center;
@@ -93,8 +93,16 @@
     user-select: none;
   }
 
-  span {
-    user-select: none;
+  .counter-number {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span {
+      user-select: none;
+      position: absolute;
+    }
   }
 
   .counter-action {
@@ -113,6 +121,7 @@
   }
 
   &__item {
+    width: 100%;
     padding: 16px;
     background-color: #1f243b;
     display: flex;
@@ -168,6 +177,7 @@
   }
 
   &__item {
+    position: relative;
     padding: 16px;
     background-color: #1f243b;
     display: flex;
@@ -203,5 +213,20 @@
         }
       }
     }
+  }
+}
+
+.edit-item {
+  position: relative;
+  user-select: none;
+  cursor: pointer;
+  background-color: #21bb69;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px 12px 24px;
+
+  img {
+    width: 32px;
   }
 }

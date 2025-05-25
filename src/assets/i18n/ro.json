@@ -12,17 +12,23 @@
   "LOCATION": "Numele locației*",
   "ADDRESS": "Adresă",
   "ADD_ITEM": "Adaugă produs",
+  "EDIT_ITEM": "Editează produs",
   "ITEM_NAME": "Nume produs*",
   "ITEM_PRICE": "Preț produs*",
   "HISTORY":"Istoric",
   "MENU":"Meniu",
   "AMOUNT_SPENT": "Suma cheltuită",
+  "REMOVE_ITEM": "Marchează pentru ștergere",
+  "CONGRATS_MESSAGE": "Felicitări!",
+  "CONSUMED_ITEMS_LIST": "Lista produselor consumate",
+  "RECEIPT": "Bon",
   "ERROR": {
     "COMPLETE_FIELD": "Te rog completează toate câmpurile obligatorii marcate cu asterisc (*).",
     "PASSWORD_MISMATCH": "Parolele nu se potrivesc.",
     "NO_DATA": "Momentan nu există date în istoric."
   },
   "SUCCESS": {
-    "LOCATION": "Locația ta a fost salvată."
+    "LOCATION": "Locația ta a fost salvată.",
+    "CONSUMPTION_MESSAGE": "Ai consumat <strong>{{total}}</strong> produse în valoare de <strong>{{price}}</strong>."
   }
 }

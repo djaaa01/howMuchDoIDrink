@@ -1,9 +1,10 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
   IonRippleEffect,
   ModalController,
   ToastController,
+  IonCheckbox,
 } from '@ionic/angular/standalone';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { ItemModel } from 'src/app/core/models/item.model';
@@ -12,14 +13,23 @@ import { ItemModel } from 'src/app/core/models/item.model';
   selector: 'app-add-item',
   templateUrl: './add-item.component.html',
   styleUrls: ['./add-item.component.scss'],
-  imports: [IonRippleEffect, TranslatePipe, FormsModule],
+  imports: [IonRippleEffect, TranslatePipe, FormsModule, IonCheckbox],
 })
-export class AddItemComponent {
+export class AddItemComponent implements OnInit {
   private modalController = inject(ModalController);
   private toastController = inject(ToastController);
   private translateService = inject(TranslateService);
+  @Input() item?: ItemModel;
   name = '';
   price!: number;
+  isRemove = false;
+
+  async ngOnInit(): Promise<void> {
+    if (this.item) {
+      this.name = this.item.name;
+      this.price = this.item.price;
+    }
+  }
 
   onDismiss(): void {
     this.modalController.dismiss();
@@ -33,7 +43,11 @@ export class AddItemComponent {
       );
       return;
     }
-    const item: ItemModel = { name: this.name, price: this.price };
+    const item: ItemModel = {
+      name: this.name,
+      price: this.price,
+      isRemove: this.isRemove,
+    };
     this.modalController.dismiss(item);
   }
 

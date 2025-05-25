@@ -1,0 +1,40 @@
+<div class="stop-message">
+  <div class="main-header">
+    <div class="main-header__left-actions">
+      <button (click)="onDismiss()" class="no-border ion-activatable">
+        {{ "CANCEL" | translate }}
+        <ion-ripple-effect></ion-ripple-effect>
+      </button>
+    </div>
+    <div class="main-header__logo">
+      <span>{{ "RECEIPT" | translate }}</span>
+    </div>
+    <div class="main-header__right-actions"></div>
+  </div>
+  <div class="stop-message__content">
+    <div class="total-amount">
+      <h2>{{ "CONGRATS_MESSAGE" | translate }}</h2>
+      <div
+        [innerHTML]="
+          'SUCCESS.CONSUMPTION_MESSAGE'
+            | translate : { total: totalCounter, price: totalPrice }
+        "
+      ></div>
+    </div>
+    <div class="total-amount__list">
+      <span>{{ "CONSUMED_ITEMS_LIST" | translate }}:</span>
+      @for (item of consumedItems; track item.name) {
+      <div class="total-amount__list__item">
+        <img src="assets/icon/beer-icon.svg" alt="" />
+        <div class="total-amount__list__item__info">
+          <div class="total-amount__list__item__info__title">
+            <span>{{ item.name }}</span>
+            <span class="price">Price: {{ item.price }}</span>
+          </div>
+          <span>{{ item.counter }}</span>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</div>

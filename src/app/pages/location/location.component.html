@@ -68,42 +68,54 @@
       @if(location()?.items?.length) {
       <div class="menu__items">
         @for (item of location()?.items; track item.name) {
-        <div class="menu__item">
-          <img src="assets/icon/beer-icon.svg" alt="" />
-          <div class="menu__item__info">
-            <div class="menu__item__info__title">
-              <span>{{ item.name }}</span>
-              <span class="price">Price: {{ item.price }}</span>
-            </div>
-            @if (location()?.state?.isPlay){
-            <div class="counter">
-              <div
-                (click)="onMinusCounter(item)"
-                class="counter-action ion-activatable"
-              >
-                <img
-                  draggable="false"
-                  src="assets/icon/minus-green-icon.svg"
-                  alt=""
-                />
-                <ion-ripple-effect></ion-ripple-effect>
+        <ion-item-sliding>
+          <ion-item>
+            <div class="menu__item">
+              <img src="assets/icon/beer-icon.svg" alt="" />
+              <div class="menu__item__info">
+                <div class="menu__item__info__title">
+                  <span>{{ item.name }}</span>
+                  <span class="price">Price: {{ item.price }}</span>
+                </div>
+                @if (location()?.state?.isPlay){
+                <div class="counter">
+                  <div
+                    (click)="onMinusCounter(item)"
+                    class="counter-action ion-activatable"
+                  >
+                    <img
+                      draggable="false"
+                      src="assets/icon/minus-green-icon.svg"
+                      alt=""
+                    />
+                    <ion-ripple-effect></ion-ripple-effect>
+                  </div>
+                  <div class="counter-number">
+                    <span>{{ item.counter || 0 }}</span>
+                  </div>
+                  <div
+                    (click)="onPlusCounter(item)"
+                    class="counter-action ion-activatable"
+                  >
+                    <img
+                      draggable="false"
+                      src="assets/icon/plus-green-icon.svg"
+                      alt=""
+                    />
+                    <ion-ripple-effect></ion-ripple-effect>
+                  </div>
+                </div>
+                }
               </div>
-              <span>{{ item.counter || 0 }}</span>
-              <div
-                (click)="onPlusCounter(item)"
-                class="counter-action ion-activatable"
-              >
-                <img
-                  draggable="false"
-                  src="assets/icon/plus-green-icon.svg"
-                  alt=""
-                />
-                <ion-ripple-effect></ion-ripple-effect>
-              </div>
+            </div></ion-item
+          >
+          <ion-item-options>
+            <div (click)="onItemEdit(item)" class="edit-item ion-activatable">
+              <img draggable="false" src="assets/icon/edit-icon.svg" alt="" />
+              <ion-ripple-effect></ion-ripple-effect>
             </div>
-            }
-          </div>
-        </div>
+          </ion-item-options>
+        </ion-item-sliding>
         }
       </div>
       }
@@ -112,7 +124,7 @@
     <div class="history">
       <div class="history__items">
         @for (item of history(); track item.createdAt) {
-        <div class="history__item">
+        <div (click)="onHistory(item)" class="history__item ion-activatable">
           <img src="assets/icon/time-icon.svg" alt="" />
           <div class="history__item__info">
             <div class="history__item__info__title">
@@ -122,6 +134,7 @@
               >
             </div>
           </div>
+          <ion-ripple-effect></ion-ripple-effect>
         </div>
         } @if (history().length === 0) {
         <span> {{ "ERROR.NO_DATA" | translate }}</span>

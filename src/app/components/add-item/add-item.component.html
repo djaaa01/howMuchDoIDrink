@@ -7,7 +7,10 @@
       </button>
     </div>
     <div class="main-header__logo">
-      <span>{{ "ADD_ITEM" | translate }}</span>
+      @if (item) {
+      <span>{{ "EDIT_ITEM" | translate }}</span
+      >} @else {<span>{{ "ADD_ITEM" | translate }}</span
+      >}
     </div>
     <div class="main-header__right-actions">
       <button (click)="onDone()" class="no-border ion-activatable">
@@ -27,5 +30,10 @@
       [placeholder]="'ITEM_PRICE' | translate"
       type="number"
     />
+
+    @if (item) {
+    <ion-checkbox [(ngModel)]="isRemove">
+      {{ "REMOVE_ITEM" | translate }} </ion-checkbox
+    >}
   </div>
 </div>
